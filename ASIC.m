@@ -1,20 +1,20 @@
-pkg load control
+pkg load control;
 run("./PF.m");
 
 function ret_var = getGFromPQ()
-	disp("Ingrese con el formato requerido [a1,a2,..,an]\n")
-	numerador = input("Coeficientes del polinomio Numerador > ")
-	denominador = input("Coeficientes del polinomio Denominador > ")
-	ret_var = tf(numerador,denominador)
+	disp("Ingrese con el formato requerido [a1,a2,..,an]\n");
+	numerador = input("Coeficientes del polinomio Numerador > ");
+	denominador = input("Coeficientes del polinomio Denominador > ");
+	ret_var = tf(numerador,denominador);
 endfunction
 
 function ret_var = getGfromPZK()
-  disp("Ingrese con el formato requerido [a1,a2,..,an]\n")
-	ceros = input("Ceros > ")
-	polos = input("Polos > ")  
-  disp("Ingrese un valor unico k\n")  
-	ganancia = input("Ganancia > ")
-	ret_var = zpk(ceros,polos,ganancia)
+  disp("Ingrese con el formato requerido [a1,a2,..,an]\n");
+	ceros = input("Ceros > ");
+	polos = input("Polos > ")  ;
+  disp("Ingrese un valor unico k\n")  ;
+	ganancia = input("Ganancia > ");
+	ret_var = zpk(ceros,polos,ganancia);
 endfunction
 
 function ret_var = promptG()
@@ -48,7 +48,7 @@ while(true)
 		"Obtener todas las características de la función transferencia",
 		"Ingresar una nueva función",
 		"Finalizar"
-	)
+	);
 
 	switch (opt)
 
@@ -71,6 +71,6 @@ while(true)
 		case 9 #"Ingresar una nueva función"
 			G=promptG();
 		otherwise #"Finalizar"
-			quit
+			quit;
 	endswitch
 endwhile
