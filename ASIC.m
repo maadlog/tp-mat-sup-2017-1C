@@ -53,17 +53,17 @@ while(true)
 	switch (opt)
 
 		case 1 #"Expresar la función transferencia."
-			disp("No implementado\n");
+			G = tf(G);
 		case 2 #"Indicar Polos."
-			disp("No implementado\n");
+			polos = pole(G)
 		case 3 #"Indicar Ceros."
-			disp("No implementado\n");
+			ceros = zero(G)
 		case 4 #"Indicar Ganancia."
 			disp("No implementado\n");
 		case 5 #"Obtener expresión con polos, ceros y ganancia."
-			disp("No implementado\n");
+			zpk(G)
 		case 6 #"Constelación de polos y ceros."
-			disp("No implementado\n");
+			pzmap(G);
 		case 7 #"Estabilidad del sistema."
 			disp("No implementado\n");
 		case 8 #"Obtener todas las características de la función transferencia"
