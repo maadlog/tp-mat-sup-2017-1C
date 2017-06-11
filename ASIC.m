@@ -61,28 +61,33 @@ while(true)
 		"Ingresar una nueva función",
 		"Finalizar"
 	);
+	noMoreActions = true;
+	opt--;
+	do
+		opt++;
+		switch (opt)
 
-	switch (opt)
-
-		case 1 #"Expresar la función transferencia."
-			G = tf(G)
-		case 2 #"Indicar Polos."
-			Polos = pole(G)
-		case 3 #"Indicar Ceros."
-			Ceros = zero(G)
-		case 4 #"Indicar Ganancia."
-			Ganancia = gain(G)
-		case 5 #"Obtener expresión con polos, ceros y ganancia."
-			zpk(G)
-		case 6 #"Constelación de polos y ceros."
-			pzmap(G);
-		case 7 #"Estabilidad del sistema."
-			determineStability(G)
-		case 8 #"Obtener todas las características de la función transferencia"
-			disp("No implementado\n");
-		case 9 #"Ingresar una nueva función"
-			G=promptG();
-		otherwise #"Finalizar"
-			quit;
-	endswitch
+			case 1 #"Expresar la función transferencia."
+				G = tf(G)
+			case 2 #"Indicar Polos."
+				Polos = pole(G)
+			case 3 #"Indicar Ceros."
+				Ceros = zero(G)
+			case 4 #"Indicar Ganancia."
+				Ganancia = gain(G)
+			case 5 #"Obtener expresión con polos, ceros y ganancia."
+				G = zpk(G)
+			case 6 #"Constelación de polos y ceros."
+				pzmap(G);
+			case 7 #"Estabilidad del sistema."
+				determineStability(G);
+			case 8 #"Obtener todas las características de la función transferencia"
+				noMoreActions = !noMoreActions;
+				opt = 0;
+			case 9 #"Ingresar una nueva función"
+				G = promptG();
+			otherwise #"Finalizar"
+				quit;
+		endswitch
+	until (noMoreActions)
 endwhile
