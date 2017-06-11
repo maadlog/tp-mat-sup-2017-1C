@@ -61,12 +61,15 @@ while(true)
 		"Ingresar una nueva función",
 		"Finalizar"
 	);
-	noMoreActions = true;
-	opt--;
-	do
-		opt++;
-		switch (opt)
 
+	if (opt == 8)
+		range = 1:7; #"Obtener todas las características de la función transferencia"
+	else
+		range = opt:opt;
+	endif
+
+	for i = range
+		switch (i)
 			case 1 #"Expresar la función transferencia."
 				G = tf(G)
 			case 2 #"Indicar Polos."
@@ -81,13 +84,11 @@ while(true)
 				pzmap(G);
 			case 7 #"Estabilidad del sistema."
 				determineStability(G);
-			case 8 #"Obtener todas las características de la función transferencia"
-				noMoreActions = !noMoreActions;
-				opt = 0;
 			case 9 #"Ingresar una nueva función"
 				G = promptG();
 			otherwise #"Finalizar"
 				quit;
 		endswitch
-	until (noMoreActions)
+	endfor
+
 endwhile
