@@ -10,5 +10,5 @@ Alumnos:
  - 
  - 
  - 
- - 
+ - Spir Leandro     146.883-2
  - Loguancio Martín 146.529-6
