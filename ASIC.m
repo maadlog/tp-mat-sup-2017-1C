@@ -35,6 +35,14 @@ function k = gain(tf)
 	[_,_,k] = zpkdata(tf);
 endfunction
 
+function determineStability(tf)
+	if (isstable(tf))
+		display("El sistema es estable");
+	else
+		display("El sistema es inestable");
+	endif
+endfunction
+
 
 G = promptG();
 
@@ -69,7 +77,7 @@ while(true)
 		case 6 #"Constelación de polos y ceros."
 			pzmap(G);
 		case 7 #"Estabilidad del sistema."
-			disp("No implementado\n");
+			determineStability(G)
 		case 8 #"Obtener todas las características de la función transferencia"
 			disp("No implementado\n");
 		case 9 #"Ingresar una nueva función"
