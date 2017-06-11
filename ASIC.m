@@ -31,6 +31,10 @@ function ret_var = promptG()
 
 endfunction
 
+function k = gain(tf)
+	[_,_,k] = zpkdata(tf);
+endfunction
+
 
 G = promptG();
 
@@ -53,13 +57,13 @@ while(true)
 	switch (opt)
 
 		case 1 #"Expresar la función transferencia."
-			G = tf(G);
+			G = tf(G)
 		case 2 #"Indicar Polos."
-			polos = pole(G)
+			Polos = pole(G)
 		case 3 #"Indicar Ceros."
-			ceros = zero(G)
+			Ceros = zero(G)
 		case 4 #"Indicar Ganancia."
-			disp("No implementado\n");
+			Ganancia = gain(G)
 		case 5 #"Obtener expresión con polos, ceros y ganancia."
 			zpk(G)
 		case 6 #"Constelación de polos y ceros."
